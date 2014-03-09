@@ -2,3 +2,29 @@
 
 Public OOD class.
 
+## Setup
+
+Clone this repository:
+
+```bash
+$ git glone https://github.com/torqueforge/durham-2014-march.git
+```
+
+Change directories so that you are in the project:
+
+```bash
+$ cd durham-2014-march
+```
+
+Install `bundler` if you don't have it:
+
+```bash
+$ gem install bundler
+```
+
+Install the dependencies:
+
+```bash
+$ bundle install
+```
+
