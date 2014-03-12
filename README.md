@@ -28,3 +28,5 @@ Install the dependencies:
 $ bundle install
 ```
 
+Each exercise will be in its own subdirectory. `cd` into that subdirectory.
+There will be a `Rakefile`, and you can run `rake` to run the tests.
