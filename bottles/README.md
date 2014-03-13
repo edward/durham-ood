@@ -19,6 +19,14 @@ To run a single test, use the name of the test:
 $ ruby test/bottles_test.rb --name test_verse_1
 ```
 
+Also, a failing test suite is provided in `./features/bottles.feature`.
+It can be run with any of the following commands:
+
+```plain
+$ cucumber
+$ cucumber features
+```
+
 Your mission, should you choose to accept it, is to make the tests pass.
 
 ### Lyrics
