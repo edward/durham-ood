@@ -7,28 +7,27 @@ class Checkerboard
   end
 
   def to_s
-    board.rows do |element|
-      element.join(' ') + "\n"
-    end.join
+    board.rows{|row| row.join(' ') + "\n"}.join
   end
 end
 
 class Board
   COLORS = %w[ B W ]
 
-  attr_reader :size, :board
+  attr_reader :board
   def initialize(size)
-    @size = size
-    @board = Matrix.build(size, size) { |row, col| color_for_position(row, col) }
+    @board = Matrix.build(size, size) do |row, col|
+      color_for_position(row, col)
+    end
   end
 
-  def rows(&block)
-    board.row_vectors.map(&:to_a).map(&block)
+  def rows
+    board.row_vectors.map{|row| yield row.to_a}
   end
 
 private
   def color_for_position(rank, file)
-    index = (rank + file) % size
+    index = (rank + file) % 2
     COLORS[index]
   end
 end
