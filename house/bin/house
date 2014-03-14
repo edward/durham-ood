@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/house'
-puts HouseSong.new.sing
+puts HouseSong.sing

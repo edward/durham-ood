@@ -1,9 +1,9 @@
 class HouseSong
-  def sing
+  def self.sing
     (1..12).map{|number| verse(number)}
   end
 
-  def verse(number)
+  def self.verse(number)
     'This is ' + SUBJECTS.last(number).join(' ') + ".\n\n"
   end
 end
