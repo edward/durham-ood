@@ -3,12 +3,12 @@ require 'matrix'
 class Checkerboard
   attr_reader :board
   def initialize(size)
-    @board = Board.of_size(size)
+    @board = Board.new(size)
   end
 
   def to_s
-    board.row_vectors.map do |row|
-      row.to_a.join(' ') + "\n"
+    board.rows do |element|
+      element.join(' ') + "\n"
     end.join
   end
 end
@@ -16,11 +16,18 @@ end
 class Board
   COLORS = %w[ B W ]
 
-  def self.of_size(size)
-    Matrix.build(size, size) { |row, col| color_for_position(row, col, size) }
+  attr_reader :size, :board
+  def initialize(size)
+    @size = size
+    @board = Matrix.build(size, size) { |row, col| color_for_position(row, col) }
   end
 
-  def self.color_for_position(rank, file, size)
+  def rows(&block)
+    board.row_vectors.map(&:to_a).map(&block)
+  end
+
+private
+  def color_for_position(rank, file)
     index = (rank + file) % size
     COLORS[index]
   end
