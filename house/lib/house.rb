@@ -4,10 +4,16 @@ class HouseSong
   end
 
   def verse(number)
-    'This is' + verse_subjects[0..number].inject('') { |result, subject| ' ' + subject + result } + ".\n\n"
+    'This is' + VerseSubject.for_verse(number) + ".\n\n"
+  end
+end
+
+class VerseSubject
+  def self.for_verse(number)
+    all_subjects[0..number].inject('') { |result, subject| ' ' + subject + result }
   end
 
-  def verse_subjects
+  def self.all_subjects
     [
       'the house that Jack built',
       'the malt that lay in',
