@@ -1,15 +1,27 @@
+require 'matrix'
+
 class Checkerboard
-  attr_reader :size
+  attr_reader :board
   def initialize(size)
-    @size = size
+    @board = Board.of_size(size)
   end
 
   def to_s
-    "#{colors[0]} #{colors[1]}\n" +
-    "#{colors[1]} #{colors[0]}\n"
+    board.row_vectors.map do |row|
+      row.to_a.join(' ') + "\n"
+    end.join
+  end
+end
+
+class Board
+  COLORS = %w[ B W ]
+
+  def self.of_size(size)
+    Matrix.build(size, size) { |row, col| color_for_position(row, col, size) }
   end
 
-  def colors
-    %w[ B W ]
+  def self.color_for_position(rank, file, size)
+    index = (rank + file) % size
+    COLORS[index]
   end
 end
