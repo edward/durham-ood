@@ -1,14 +1,10 @@
 class HouseSong
   def sing
-    verses.map{|v| v + "\n\n"}
-  end
-
-  def verses
     (0..11).map{|number| verse(number)}
   end
 
   def verse(number)
-    'This is' + verse_subjects[0..number].inject('') { |result, subject| ' ' + subject + result } + '.'
+    'This is' + verse_subjects[0..number].inject('') { |result, subject| ' ' + subject + result } + ".\n\n"
   end
 
   def verse_subjects
