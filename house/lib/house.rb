@@ -10,7 +10,7 @@ end
 
 class Subject
   def self.for_verse(number)
-    Subject.new(number).to_s
+    new(number).to_s
   end
 
   attr_reader :number
