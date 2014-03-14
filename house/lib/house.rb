@@ -1,6 +1,6 @@
 class HouseSong
   def sing
-    (0..11).map{|number| verse(number)}
+    (1..12).map{|number| verse(number)}
   end
 
   def verse(number)
@@ -10,7 +10,7 @@ end
 
 class VerseSubject
   def self.for_verse(number)
-    all_subjects[0..number].inject('') { |result, subject| ' ' + subject + result }
+    all_subjects.take(number).inject('') { |result, subject| ' ' + subject + result }
   end
 
   def self.all_subjects
