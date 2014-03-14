@@ -13,7 +13,6 @@ BOARD
   end
 
   def test_bigger_board
-    skip
     expected = <<-BOARD
 B W B
 W B W
@@ -23,7 +22,6 @@ BOARD
   end
 
   def test_chess_board
-    skip
     expected = <<-BOARD
 B W B W B W B W
 W B W B W B W B
