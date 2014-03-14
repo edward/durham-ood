@@ -4,36 +4,7 @@ class HouseSong
   end
 
   def verse(number)
-    'This is' + Subject.for_verse(number) + ".\n\n"
-  end
-end
-
-class Subject
-  def self.for_verse(number)
-    new(number).to_s
-  end
-
-  attr_reader :number
-  def initialize(number)
-    @number = number
-  end
-
-  def to_s
-    ' ' + SUBJECTS[number] + next_subject.to_s
-  end
-
-  def next_subject
-    if number == 0
-      NullSubject.new
-    else
-      Subject.new(number-1)
-    end
-  end
-end
-
-class NullSubject
-  def to_s
-    ''
+    'This is ' + SUBJECTS.take(number+1).reverse.join(' ') + ".\n\n"
   end
 end
 
