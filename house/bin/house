@@ -17,4 +17,6 @@ SUBJECTS = [
   'the house that Jack built'
 ]
 
-puts HouseSong.new(SUBJECTS).sing
+shuffled_subjects = ShufflerExceptForTheLastElement.new(SUBJECTS).shuffle
+
+puts HouseSong.new(shuffled_subjects).sing
